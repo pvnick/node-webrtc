@@ -125,7 +125,8 @@ public:
                   ICE_GATHERING_STATE_CHANGE
   };
 
-  PeerConnection();
+  PeerConnection(int custom_min_port = 0,
+                 int custom_max_port = 0);
   ~PeerConnection();
 
   //
@@ -197,6 +198,7 @@ private:
 
   rtc::scoped_refptr<webrtc::PeerConnectionFactoryInterface> _jinglePeerConnectionFactory;
   rtc::scoped_refptr<webrtc::PeerConnectionInterface> _jinglePeerConnection;
+  rtc::scoped_refptr<webrtc::PortAllocatorFactoryInterface> _allocatorFactory;
 };
 
 }

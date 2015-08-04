@@ -126,11 +126,12 @@ void DataChannel::QueueEvent(AsyncEventType type, void* data)
 
 NAN_WEAK_CALLBACK(MessageWeakCallback)
 {
-  P* parameter = data.GetParameter();
-  delete[] parameter->message;
-  parameter->message = NULL;
-  delete parameter;
+  /*P* parameter = data.GetParameter();
+  //delete[] parameter->message;
+  //parameter->message = NULL;
+  //delete parameter;
   //NanAdjustExternalMemory(-parameter->size);
+  */
 }
 
 void DataChannel::Run(uv_async_t* handle, int status)
